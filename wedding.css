@@ -3,6 +3,7 @@ html {
 }
 body {
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 .landing {
@@ -18,7 +19,7 @@ body {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    opacity: 0.7;
+    /* opacity: 0.7; */
 }
 
 .background {
@@ -54,17 +55,16 @@ body {
     margin-bottom: 3%;
 }
 
-.section {
+/* .section {
     width: 100vw;
     height: 100%;
-}
+} */
 
 #gallery {
     /* padding-top:6%; */
-    position: absolute;
-    top: 500%;
+    position: relative;
     width: 100vw;
-    height: 300%;
+    height: 100%;
     background-image: url('./images/gallery-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -72,16 +72,12 @@ body {
 }
 
 #time-place {
-    position: absolute;
-    top:100%;
+    position: relative;
+    margin-bottom: -100px;
     z-index: -8;
     background-color: beige;
-    height: 265%;
-}
-
-.tp {
-    /* position: absolute; */
-    margin-top: 15%;
+    width: 100vw;
+    height: 100%;
 }
 
 .title {
@@ -90,12 +86,7 @@ body {
 
 .photos {
     width: 80%;
-}
-
-.photos img {
-    width: calc(100% / 3 - 10px); /* Mengatur lebar gambar agar muat dalam satu baris dengan margin */
-    height: auto; /* Memastikan proporsi gambar tetap */
-    object-fit: cover;
+    gap:2%;
 }
 
 .fixed-bg {
@@ -106,44 +97,46 @@ body {
 }
 
 #about {
+    padding-top: 10%;
     position: relative;
     z-index: 10;
-    top:60%;
+    top:35%;
     width: 100vw;
-    height: 100%;
+    /* height: 100%; */
 }
 
 #wishes {
-    position: absolute;
-    top: 365%;
+    position: relative;
+    height: 100%;
 }
-.card {
-    position: absolute;
-    width: 90%;
-    height: 60%;
+#about .card {
+    /* position: absolute; */
+    width: 80%;
     border-radius: 13px;
     border: 5px solid rgb(205, 187, 82);
     padding: 10px 10px 10px 10px;
     /* box-shadow: 2px 0 gray; */
 }
 
-.card .flex-about {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
 
 .about-bg img {
     border-bottom: 5px solid rgb(205, 187, 82);
 }
 
 .about-line {
-    position: absolute;
-    top:100%;
+    /* position: absolute; */
+    /* top:100%; */
     width: 100vw;
     height: 7px;
     background-color: rgb(205, 187, 82);
     z-index: -3;
+}
+
+.bawah-about {
+    width: 100vw;
+    height: 250px;
+    z-index: -3;
+    background-color: beige;
 }
 
 .nav-link {
@@ -186,6 +179,14 @@ body {
     border-radius: 50%;
 }
 
+.about-heart{
+    background-image: url('./images/icons8-heart.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
 .border-about img {
     margin-bottom: 16px;
     width: 130%;
@@ -217,10 +218,15 @@ body {
 
 .container-tp {
     width: 80%;
-
+    padding-bottom: 5%;
+    margin-bottom: 6%;     
 }
 
+
+
+
 .box-tp {
+    position: relative;
     width: 600px;
     height: 650px;
     background-image: url('./images/frame-tp.png');
@@ -230,28 +236,50 @@ body {
     padding-left: 10.5%;
 }
 
-.icon-tp {
+.box-tp .content-tp {
+    position: absolute;
+    top: 0;
+    left: 50;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box-tp .icon-tp {
+    width: 100%;
     margin-top: 2%;
     color: brown;
 }
 
 .icon-tp ion-icon {
-    margin-right: 5%;
+    margin-right: 3%;
 }
 
 .countdown {
+    position: relative;
     width: 100vw;
-    height: 50%;
-    position: absolute;
-    top: 265%;
-    padding-top: 33%;
+    height: 80vh;
     color: black;
 }
 
-.countdown-bg {
+.countdown-text {
+    padding-top: 15%;
+}
+
+.countdown img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -20;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+/* .countdown-bg {
     top: 265%;
 
-}
+} */
 
 #countdown-timer {
     margin-top: 3%;
@@ -287,7 +315,7 @@ body {
 .card-wish .img-box {
     position: relative;
     border-style: none;
-    width: 100%;
+    width: 103.5%;
     height: 100%;
     transform-origin: left;
     z-index: 1;
@@ -318,9 +346,26 @@ body {
     padding: 50px 20px 20px;
 }
 
+.photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.column {
+    gap:2%;
+}
+
 @media (max-width: 480px) {
-    .gallery-item {
-        width: calc(100% - 20px);
+    .home-invitation {
+        background-color: rgba(248, 222, 255, 0.25);
+        padding: 20px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .box-tp {
@@ -334,4 +379,103 @@ body {
     .maps {
         height: 200px;
     }
+    .flex-about{
+        flex-direction: column;
+    }
+    .landing img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .background {
+        height: 100%;
+        width: 100vw;
+        object-fit: cover;
+        z-index: -5;
+    }
+    #gallery {
+        /* padding-top:6%; */
+        width: 100vw;
+        height: 100%;
+        background-image: url('./images/gallery-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #time-place {
+        padding-top: 500px;
+        z-index: -8;
+        background-color: beige;
+        height: 100%;
+        width: 100vw;
+        position: relative;
+    }
+    .box-tp {
+        width: 350px;
+        height: 450px;
+    }
+    .content-tp h1 {
+        font-size: 1.5rem;
+    }
+
+    .icon-tp p {
+        font-size: 0.8rem;
+    }
+
+    ion-icon {
+        font-size: 12px;
+    }
+
+    .maps {
+        width: 270px;
+        height: 130px;
+    }
+    .card {
+        width: 90%;
+        /* height: 60%; */
+        border-radius: 13px;
+        border: 5px solid rgb(205, 187, 82);
+        padding: 0.5vw;
+        /* box-shadow: 2px 0 gray; */
+    }
+    
+
+    .about-line {
+        width: 100vw;
+        height: 7px;
+        background-color: rgb(205, 187, 82);
+        z-index: -3;
+    }
+    .countdown {
+        /* font-size: smaller; */
+        width: 100vw;
+        height: 50%;
+        padding-top: 33%;
+        color: black;
+    }
+
+    .countdown-text h1 {
+        font-size: 1.5rem;
+    }
+
+    #countdown-timer {
+        font-size: 0.5rem;
+    }
+    .card-wish .img-box img {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: beige;
+        object-fit: cover;
+    }
+    
+    .card-wish .details {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 50px 20px 20px;
+    }
+
 }
