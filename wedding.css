@@ -1,16 +1,24 @@
+html {
+    height: 100%;
+}
 body {
-    height: 100vh;
+    min-height: 100%;
+}
+
+.landing {
+    position: relative;
     width: 100vw;
-    /* overflow-x: hidden; */
+    height: 100vh;
 }
 
-.navv {
-    color: white;
-    position: sticky;
-}
-
-.navbar-scroll {
-    position: sticky;
+.landing img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
 }
 
 .background {
@@ -54,7 +62,7 @@ body {
 #gallery {
     /* padding-top:6%; */
     position: absolute;
-    top: 400%;
+    top: 500%;
     width: 100vw;
     height: 300%;
     background-image: url('./images/gallery-bg.jpg');
@@ -65,7 +73,15 @@ body {
 
 #time-place {
     position: absolute;
-    top:135%;
+    top:100%;
+    z-index: -8;
+    background-color: beige;
+    height: 265%;
+}
+
+.tp {
+    /* position: absolute; */
+    margin-top: 15%;
 }
 
 .title {
@@ -90,21 +106,31 @@ body {
 }
 
 #about {
-    position: absolute;
-    top:70%
+    position: relative;
+    z-index: 10;
+    top:60%;
+    width: 100vw;
+    height: 100%;
 }
 
 #wishes {
     position: absolute;
-    top: 350%;
+    top: 365%;
 }
 .card {
-    position: sticky;
-    /* top:50%; */
-    width: 80%;
-    height: 450px;
+    position: absolute;
+    width: 90%;
+    height: 60%;
     border-radius: 13px;
     border: 5px solid rgb(205, 187, 82);
+    padding: 10px 10px 10px 10px;
+    /* box-shadow: 2px 0 gray; */
+}
+
+.card .flex-about {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .about-bg img {
@@ -179,12 +205,133 @@ body {
     margin-top: 5%;
 }
 
-.about-heart {
+.about-heart img {
     margin-top: 5%;
-    width: 100%;
+    width: 5%;
 }
 
 .maps {
-    width: 500px;
-    height: 300px;
+    width: 350px;
+    height: 150px;
+}
+
+.container-tp {
+    width: 80%;
+
+}
+
+.box-tp {
+    width: 600px;
+    height: 650px;
+    background-image: url('./images/frame-tp.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 10.5%;
+}
+
+.icon-tp {
+    margin-top: 2%;
+    color: brown;
+}
+
+.icon-tp ion-icon {
+    margin-right: 5%;
+}
+
+.countdown {
+    width: 100vw;
+    height: 50%;
+    position: absolute;
+    top: 265%;
+    padding-top: 33%;
+    color: black;
+}
+
+.countdown-bg {
+    top: 265%;
+
+}
+
+#countdown-timer {
+    margin-top: 3%;
+}
+
+.container-wishes {
+    width: 80%;
+}
+.wishes-container {
+    width: 100%;
+}
+
+.card-wish {
+    position: relative;
+    margin: 20px 0;
+    width: 350px;
+    height: 350px;
+    background: wheat;
+    border: none;
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    transition: ease-in-out 0.5s;
+    border-radius: 0;
+    box-shadow: inset 300px 0 50px rgba(0,0,0,0.25);
+}
+
+.card-wish:active {
+    transform: perspective(2000px);
+    box-shadow: inset 20px 0 50px rgba(0,0,0,0.25);
+    z-index: 1000;
+}
+
+.card-wish .img-box {
+    position: relative;
+    border-style: none;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    z-index: 1;
+    transition: 0.5s;
+    /* object-fit: cover; */
+}
+
+.card-wish:active .img-box {
+    transform: rotateY(-120deg);
+}
+
+.card-wish .img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: beige;
+    object-fit: cover;
+}
+
+.card-wish .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px 20px 20px;
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: calc(100% - 20px);
+    }
+
+    .box-tp {
+        width: 100%;
+    }
+
+    .container-tp {
+        flex-direction: column;
+    }
+
+    .maps {
+        height: 200px;
+    }
 }
